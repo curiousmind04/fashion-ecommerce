@@ -1,9 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-
-import Navbar from "./components/Navbar";
-import classes from "./layout.module.css";
+import ToasterProvider from "./providers/ToasterProvider";
+// import classes from "./layout.module.css";
+import ClientOnly from "./components/ClientOnly";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Fashion stores for business owners",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -20,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <div className={classes.container}>{children}</div>
+        <ClientOnly>
+          <ToasterProvider />
+        </ClientOnly>
+        <div>{children}</div>
       </body>
     </html>
   );
