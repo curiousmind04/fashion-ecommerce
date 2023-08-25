@@ -27,13 +27,20 @@ export async function POST(request: Request) {
 
   const { name, description, subdomain } = body;
 
-  if (/\s/.test(subdomain)) {
+  if (/^[A-Za-z0-9]*$/.test(subdomain) !== true) {
     // name has any kind of whitespace
     return NextResponse.json(
-      { error: "Subdomain cannot contain spaces!" },
+      { error: "letters/numbers only for subdomain!" },
       { status: 422 }
     );
   }
+  // if (/\s/.test(subdomain)) {
+  //   // name has any kind of whitespace
+  //   return NextResponse.json(
+  //     { error: "Subdomain cannot contain spaces!" },
+  //     { status: 422 }
+  //   );
+  // }
 
   const subdomainTaken = await prisma.store.findUnique({
     where: {
