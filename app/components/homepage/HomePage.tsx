@@ -23,13 +23,33 @@ const HomePage: React.FC<HomePageProps> = ({ currentUser }) => {
   }, []);
 
   return (
-    <div className={classes.container}>
+    <div className={classes.hp}>
+      <video
+        className={classes.video}
+        playsInline
+        autoPlay
+        muted
+        loop
+        id="video"
+        src="/assets/dsk-video.mp4"
+      ></video>
       <h1>FashionVista</h1>
-      {loginMode ? (
-        <LoginForm toggleMode={toggleMode} />
-      ) : (
-        <RegisterForm toggleMode={toggleMode} />
-      )}
+      <div className={classes.container}>
+        <div className={classes.text}>
+          <p className={classes.mainText}>
+            <span>Connect</span> with Shoppers Anywhere at Anytime
+          </p>
+          <p style={{ fontSize: "1.25rem", fontFamily: "Visby-Reg" }}>
+            Create your online store with FashionVista
+          </p>
+        </div>
+
+        {loginMode ? (
+          <LoginForm toggleMode={toggleMode} />
+        ) : (
+          <RegisterForm toggleMode={toggleMode} />
+        )}
+      </div>
     </div>
   );
 };

@@ -32,7 +32,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ toggleMode }) => {
         toggleMode();
       })
       .catch((error) => {
-        toast.error("Something went wrong");
+        toast.error(error.response.data.error);
       })
       .finally(() => {
         setIsLoading(false);
@@ -41,7 +41,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ toggleMode }) => {
 
   return (
     <form onSubmit={handleSubmit(submitHandler)} className={classes.form}>
-      <h2>Register</h2>
+      <h2 style={{ fontSize: "1.3rem", fontFamily: "Visby" }}>Register</h2>
       <Input
         id="email"
         label="Email"
