@@ -1,14 +1,19 @@
-import { Product, Store } from "@prisma/client";
+import { Banner, Product, Store } from "@prisma/client";
 import classes from "./StorePageClient.module.css";
+import HeaderClient from "./HeaderClient";
+import StoreList from "./StoreList";
+import BannerClient from "./Banner";
 
 interface StorePageClientProps {
   store: Store | null;
   products: Product[] | null;
+  banner: Banner | null;
 }
 
 const StorePageClient: React.FC<StorePageClientProps> = ({
   store,
   products,
+  banner,
 }) => {
   // console.log(products);
   // console.log(store);
@@ -23,8 +28,9 @@ const StorePageClient: React.FC<StorePageClientProps> = ({
 
   return (
     <div className={classes.container}>
-      <h2>{store?.name}</h2>
-      <div>{store?.description}</div>
+      <HeaderClient store={store} />
+      <BannerClient banner={banner} />
+      <StoreList products={products} />
     </div>
   );
 };

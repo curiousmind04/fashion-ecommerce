@@ -1,0 +1,72 @@
+.storeList {
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.heading {
+  border-left: 3px solid #fa6e20;
+  padding-left: 10px;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 30px;
+  font-family: Jaldi;
+  margin: 30px 0;
+}
+
+.storeItems {
+  width: 100%;
+  max-width: 230px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  column-gap: 1.5rem;
+  row-gap: 3rem;
+}
+
+.storeItem {
+  width: 100%;
+  height: 14rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.itemImage {
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 430px) {
+  .storeItems {
+    max-width: 470px;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+    row-gap: 3rem;
+  }
+}
+
+@media (min-width: 650px) {
+  .storeItems {
+    max-width: 715px;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.5rem;
+    row-gap: 3rem;
+  }
+}
+
+@media (min-width: 800px) {
+  .storeItems {
+    max-width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1.5rem;
+    row-gap: 3rem;
+  }
+}
+
+@media (min-width: 1075px) {
+  .storeItems {
+    max-width: 1175px;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 1.5rem;
+    row-gap: 3rem;
+  }
+}
