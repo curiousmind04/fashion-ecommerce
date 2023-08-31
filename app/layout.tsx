@@ -1,18 +1,17 @@
-import "./globals.css";
+import "@/app/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import ToasterProvider from "./providers/ToasterProvider";
-// import classes from "./layout.module.css";
 import ClientOnly from "./components/ClientOnly";
+import ToasterProvider from "./providers/ToasterProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "FashionVista",
-  description: "Fashion stores for business owners",
+  description: "E-commerce Application",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
