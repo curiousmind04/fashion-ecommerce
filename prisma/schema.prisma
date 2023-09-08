@@ -51,6 +51,7 @@ model Product {
   size String
   price Int
   images String[]
+  archived Boolean
   createdAt DateTime @default(now())
   userId String @db.ObjectId
   storeId String @db.ObjectId
@@ -78,6 +79,7 @@ model Banner {
 model Order {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   orderItems String[]
+  orderTotal Int
   counts Json
   isPaid Boolean
   phone String

@@ -22,7 +22,8 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
   const searchParams = useSearchParams();
   const params = useParams();
 
-  const orderTotal = (itemTotal + 15) * (1 + 7 / 100);
+  const orderTotal = itemTotal + 15;
+  // const orderTotal = (itemTotal + 15) * (1 + 7 / 100);
 
   // console.log(counts);
 
@@ -43,6 +44,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
     const response = await axios.post(`/api/${params?.subdomain}/checkout`, {
       productIds: cart.map((item) => item.id),
       counts: counts,
+      orderTotal: itemTotal + 15,
     });
 
     window.location = response.data.url;
@@ -62,10 +64,10 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
           <div className={classes.title}>Shipping</div>
           <div>{formatCurrency(15)}</div>
         </div>
-        <div className={classes.summaryDivs}>
+        {/* <div className={classes.summaryDivs}>
           <div className={classes.title}>Tax ({7}%)</div>
           <div>{formatCurrency(((itemTotal + 15) * 7) / 100)}</div>
-        </div>
+        </div> */}
         <div className={classes.totalDiv}>
           <div className={classes.title}>Total</div>
           <div>{formatCurrency(orderTotal)}</div>
